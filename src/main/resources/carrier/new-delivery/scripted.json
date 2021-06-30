@@ -1,0 +1,36 @@
+#set($math = $body.getClass().forName("org.apache.velocity.tools.generic.MathTool").newInstance())
+#set($prdVolum = ($body.productos[0].dimensiones.alto * $body.productos[0].dimensiones.largo * $body.productos[0].dimensiones.ancho))
+#if( $body.id == "1000" )
+	#set($ratio = 0.15 )
+	#set($cpDestino = $body.cpDestino)	
+	#set($cpOrigen = $body.origen[0].cp)
+#elseif( $body.id == "1101" )
+	#set($ratio = 0.2 )
+	#set($cpDestino = $body.destino[0].cp)
+	#set($cpOrigen = $body.origen[0].cp)
+#elseif( $body.id == "2000" )
+	#set($ratio = 0.17 )
+	#set($cpDestino = $body.cpDestino)
+	#set($cpOrigen = $body.origen[0].cp)
+#elseif( $body.id == "2101" )
+	#set($ratio = 0.21 )
+	#set($cpDestino = $body.destino[0].cp)
+	#set($cpOrigen = $body.origen[0].cp)
+#elseif( $body.id == "3000" )
+	#set($ratio = 0.1 )
+	#set($cpDestino = $body.cpDestino)
+	#set($cpOrigen = $body.origen[0].cp)
+#elseif( $body.id == "3101" )
+	#set($ratio = 0.12 )  
+	#set($cpDestino = $body.destino[0].cp)
+	#set($cpOrigen = $body.origen[0].cp)
+#end
+#set($val = ($math.abs( $cpOrigen - $cpDestino ) * $body.productos[0].peso * $prdVolum * $body.productos[0].cantidad))
+#set($cost = $math.roundTo( 2, $val * $ratio))
+{
+    "status": "200",
+    "id": "1Z5V655E0499261239",
+    "seguimiento": "1570048920",
+    "tracking_id": "XJO-1E21167",    
+    "importe": $cost
+}

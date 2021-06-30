@@ -1,0 +1,17 @@
+[
+    {
+        "fechahora": "20190704",
+        "detalle": "AR",
+        "estado": "Ingreso al correo"
+    },
+    {
+        "fechahora": "20190705",
+        "detalle": "AR",
+        "estado": "En proceso de clasificacion "
+    },
+    {
+        "fechahora": "20190706",
+        "detalle": "AR",
+        "estado": "Llegada al centro de procesamiento"
+    }    
+]
